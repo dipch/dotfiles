@@ -8,10 +8,7 @@ include-file = ~/.config/polybar/modules.ini
 
 [bar/main]
 
-monitor = HDMI-2
-monitor-fallback = eDP-1
-monitor-strict = true
-override-redirect = false
+monitor = ${env:MONITOR:}
 
 bottom = false
 fixed-center = true
