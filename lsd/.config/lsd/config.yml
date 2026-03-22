@@ -1,0 +1,89 @@
+# == LSD Configuration File ==
+# Save this file to:
+# Linux/macOS: ~/.config/lsd/config.yaml
+# Windows: C:\Users\<Username>\AppData\Roaming\lsd\config.yaml
+
+# Enable classic mode (strips colors, icons, and extra formatting to act like standard ls)
+# classic: false
+
+# What blocks to display and in what order
+blocks:
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - git
+  - name
+
+# Display column headers (e.g. Permission, User, Size)
+header: true
+
+# Color settings
+color:
+  # When to colorize the output (always, auto, never)
+  when: auto
+  # The color theme to use (default, custom)
+  theme: custom
+
+# Date formatting
+# Options: date, relative, "+<date_format>" (e.g., "+%Y-%m-%d %H:%M")
+date: "+%d %b %Y %H:%M"
+
+# Whether to dereference symbolic links
+# dereference: false
+
+# What items to display
+# Options: all, almost-all, directory-only, visible-only
+display: visible-only
+
+# Icon settings
+icons:
+  # When to display icons (always, auto, never)
+  when: auto
+  # Which icon theme to use (fancy, unicode)
+  theme: fancy
+  # The string used to separate the icon from the file name
+  separator: " "
+
+# Files or directories to ignore (uses glob patterns)
+# ignore-globs:
+#   - ".git"
+#   - "node_modules"
+
+# Whether to append an indicator (e.g., / for directories, * for executables)
+indicators: false
+
+# Layout of the output
+# Options: grid, tree, oneline
+layout: grid
+
+# Recursion settings
+recursion:
+  # Whether to enable recursion
+  enabled: false
+  # Depth of recursion (leave commented out or set to 'null' for infinite)
+  # depth: 3
+
+# Format for file sizes
+# Options: default, short, bytes
+size: short
+
+# Format for permissions
+# Options: rwx, octal
+permission: rwx
+
+# Sorting settings
+sorting:
+  # Column to sort by (name, size, time, version, extension)
+  column: name
+  # Whether to reverse the sort order
+  reverse: false
+  # How to group directories (first, last, none)
+  dir-grouping: first
+
+# The arrow used to point from a symlink to its target
+symlink-arrow: "⇒"
+
+# Whether to show the target of a symlink
+# no-symlink: false
