@@ -110,6 +110,7 @@ alias python='python3'
 alias ibg-solander='ssh ibg-solander'
 alias uppmax-snic='ssh uppmax-snic'
 alias reload='source ~/.zshrc'
+alias brewupdate='brew update && brew upgrade && brew cleanup'
 
 alias ls="lsd --group-dirs first"
 alias ll="lsd --group-dirs first -la"

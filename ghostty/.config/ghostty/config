@@ -1,0 +1,25 @@
+# Ghostty Premium Configuration
+
+# --- Aesthetics & UI ---
+# A gorgeous dark theme that integrates perfectly with the transparency
+# (Commented out so it uses Ghostty's beautiful native default theme)
+theme = Catppuccin Mocha
+
+# Glassmorphism effect (macOS only)
+background-opacity = 0.85
+background-blur-radius = 20
+
+# Give your text some breathing room from the edge of the window
+window-padding-x = 12
+window-padding-y = 12
+
+# Display the standard macOS traffic lights with a transparent title bar to match the glass effect
+macos-titlebar-style = transparent
+
+# --- Behavior ---
+# Fixes Option key behavior on Mac so it correctly acts as 'Alt' for keyboard shortcuts (like jumping words)
+macos-option-as-alt = true
+
+# Make cursor blinking smooth instead of sharp on/off
+cursor-style = block
+cursor-style-blink = true
