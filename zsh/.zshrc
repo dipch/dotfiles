@@ -110,7 +110,6 @@ alias python='python3'
 alias ibg-solander='ssh ibg-solander'
 alias uppmax-snic='ssh uppmax-snic'
 alias reload='source ~/.zshrc'
-alias brewupdate='brew update && brew upgrade && brew cleanup'
 
 alias ls="lsd --group-dirs first"
 alias ll="lsd --group-dirs first -la"
@@ -125,21 +124,6 @@ export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 # Added by Antigravity
 export PATH="/Users/dipc/.antigravity/antigravity/bin:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/dipc/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/dipc/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/dipc/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/dipc/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -147,3 +131,79 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Initialize Starship prompt
 eval "$(starship init zsh)"
 
+# --- ZSH History Configuration ---
+HISTFILE=$HOME/.zsh_history           # Where to save the history file
+HISTSIZE=50000                        # How many lines to keep in the current session
+SAVEHIST=100000                       # How many lines to save in the actual file
+
+# --- History Options ---
+setopt EXTENDED_HISTORY               # Add timestamps to history 
+setopt SHARE_HISTORY                  # Share history between all sessions
+setopt HIST_IGNORE_DUPS               # Do not record a command if it's a duplicate of the previous one
+setopt HIST_IGNORE_ALL_DUPS           # If a new command is a duplicate, remove the older one from history
+setopt HIST_REDUCE_BLANKS             # Remove extra blanks from each command line being added to history
+setopt HIST_IGNORE_SPACE              # Don't record commands starting with a space
+setopt INC_APPEND_HISTORY             # Append to the history file immediately, don't wait for shell exit
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/dipc/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/dipc/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dipc/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/dipc/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/Users/dipc/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/Users/dipc/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+# Total Dev Maintenance: Homebrew & Optional Mamba/Miniforge
+nuke() {
+    # 1. Calculate Homebrew cache size before
+    local brew_cache=$(brew --cache)
+    local hb_before=$(du -sk "$brew_cache" 2>/dev/null | cut -f1 || echo 0)
+
+    echo "🔄 1/3: Updating Homebrew..."
+    brew update && brew upgrade
+    
+    echo "🧹 2/3: Scrubbing Homebrew caches..."
+    brew cleanup -s
+
+    # 2. Check for Mamba
+    if command -v mamba &> /dev/null; then
+        echo "🐍 3/3: Mamba detected. Updating and cleaning..."
+        mamba update -n base conda mamba -y
+        mamba clean --all -y
+    else
+        echo "ℹ️  Step 3/3: Mamba not found. Skipping conda maintenance."
+    fi
+
+    # 3. Final Report
+    local hb_after=$(du -sk "$brew_cache" 2>/dev/null | cut -f1 || echo 0)
+    local saved_kb=$((hb_before - hb_after))
+    local saved_mb=$(echo "scale=2; $saved_kb / 1024" | bc)
+
+    echo "------------------------------------------"
+    echo "✅ Maintenance complete!"
+    if (( $(echo "$saved_mb > 0.1" | bc -l) )); then
+        echo "📊 Recovered from Homebrew: **$saved_mb MB**"
+    fi
+    echo "------------------------------------------"
+}
