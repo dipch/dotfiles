@@ -1,0 +1,118 @@
+tap "brewsci/bio"
+tap "hacker1024/hacker1024"
+tap "minorole/tap"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Parser generator
+brew "bison"
+# Basic Local Alignment Search Tool
+brew "blast"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Linux/OSX/FreeBSD resource monitor
+brew "bpytop"
+# Ruby environment tool
+brew "chruby"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Alternative to top/htop
+brew "glances"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Portable Foreign Function Interface library
+brew "libffi"
+# YAML Parser
+brew "libyaml"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Mac App Store command-line interface
+brew "mas"
+# Provides a formatted and highlighted view of Markdown files in Terminal
+brew "mdless"
+# Free (GNU) replacement for the Pico text editor
+brew "nano"
+# Improved Nano Syntax Highlighting Files
+brew "nanorc"
+# Development kit for the Java programming language
+brew "openjdk@21"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# SVG rendering tool and library
+brew "resvg"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
+# Tools for manipulating next-generation sequencing data
+brew "samtools"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Pager/text based browser
+brew "w3m"
+# Internet file retriever
+brew "wget"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp", args: ["HEAD"]
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Efficient and versatile phylogenomic software by maximum likelihood
+brew "brewsci/bio/iqtree3"
+# Outputs current CPU core and package temperatures on macOS
+brew "hacker1024/hacker1024/coretemp"
+# Ghostty Session Manager - launch AI-ready dev environments
+brew "minorole/tap/gpane"
+# Desktop password and login vault
+cask "bitwarden"
+# Voice and text chat software
+cask "discord"
+# Per-application volume mixer, equalizer, and audio router
+cask "finetune"
+cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# File archiver
+cask "keka"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
+# Clipboard manager
+cask "maccy"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Team communication and collaboration software
+cask "slack"
+# Open-source BitTorrent client
+cask "transmission"
+# Multimedia player
+cask "vlc"
+# Native desktop client for WhatsApp
+cask "whatsapp"
+# Video communication and virtual meeting platform
+cask "zoom"
+# Collect, organise, cite, and share research sources
+cask "zotero"
+mas "Bitwarden", id: 1352778147
+mas "PDFgear", id: 6469021132
+mas "Slack", id: 803453959
+mas "WhatsApp", id: 310633997

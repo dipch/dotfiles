@@ -177,37 +177,52 @@ fi
 unset __mamba_setup
 # <<< mamba initialize <<<
 
-# Total Dev Maintenance: Homebrew & Optional Mamba/Miniforge
+# Total Dev Maintenance: Homebrew, Mamba, Snapshot, and Timer
 nuke() {
+    # 0. Start the timer
+    local start_time=$(date +%s)
+
     # 1. Calculate Homebrew cache size before
     local brew_cache=$(brew --cache)
     local hb_before=$(du -sk "$brew_cache" 2>/dev/null | cut -f1 || echo 0)
 
-    echo "🔄 1/3: Updating Homebrew..."
+    echo "🔄 1/4: Updating Homebrew..."
     brew update && brew upgrade
     
-    echo "🧹 2/3: Scrubbing Homebrew caches..."
+    echo "🧹 2/4: Scrubbing Homebrew caches..."
     brew cleanup -s
 
     # 2. Check for Mamba
     if command -v mamba &> /dev/null; then
-        echo "🐍 3/3: Mamba detected. Updating and cleaning..."
+        echo "🐍 3/4: Mamba detected. Updating and cleaning..."
         mamba update -n base conda mamba -y
         mamba clean --all -y
     else
-        echo "ℹ️  Step 3/3: Mamba not found. Skipping conda maintenance."
+        echo "ℹ️  Step 3/4: Mamba not found. Skipping conda maintenance."
     fi
 
-    # 3. Final Report
+    # 3. Snapshot Brewfile
+    echo "📦 4/4: Taking Brewfile snapshot to ~/Developer/github/dotfiles/..."
+    # Ensure the directory exists first
+    mkdir -p ~/Developer/github/dotfiles/brew/
+    brew bundle dump --force --describe --file=~/Developer/github/dotfiles/brew/Brewfile
+
+    # 4. Final Calculations
     local hb_after=$(du -sk "$brew_cache" 2>/dev/null | cut -f1 || echo 0)
     local saved_kb=$((hb_before - hb_after))
     local saved_mb=$(echo "scale=2; $saved_kb / 1024" | bc)
+    
+    # Calculate duration
+    local end_time=$(date +%s)
+    local duration=$((end_time - start_time))
 
     echo "------------------------------------------"
     echo "✅ Maintenance complete!"
     if (( $(echo "$saved_mb > 0.1" | bc -l) )); then
         echo "📊 Recovered from Homebrew: **$saved_mb MB**"
     fi
+    echo "📸 Brewfile snapshot saved."
+    echo "⏱️  Total time: ${duration} seconds"
     echo "------------------------------------------"
 }
 
