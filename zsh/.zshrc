@@ -109,6 +109,9 @@ alias python='python3'
 
 alias ibg-solander='ssh ibg-solander'
 alias uppmax-snic='ssh uppmax-snic'
+alias uppmax-pelle='ssh uppmax-pelle'
+alias uppmax-bianca='ssh uppmax-bianca'
+alias uppmax-rackham='ssh uppmax-rackham'
 alias reload='source ~/.zshrc'
 
 alias ls="lsd --group-dirs first"
@@ -207,3 +210,6 @@ nuke() {
     fi
     echo "------------------------------------------"
 }
+
+# Display Fastfetch
+fastfetch
