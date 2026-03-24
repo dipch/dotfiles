@@ -1,0 +1,136 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "padding": {
+            "top": 0,
+            "right": 2
+        }
+    },
+    "display": {
+        "separator": " ",
+        "constants": [
+            "────────────────────────────────────────────────────────────",
+            "\u001b[90m│\u001b[60C│\u001b[60D\u001b[39m"
+        ],
+        "bar": {
+            "border": {
+                "left": "\uee00",
+                "leftElapsed": "\uee03",
+                "right": "\uee02",
+                "rightElapsed": "\uee05"
+            },
+            "char": {
+                "total": "\uee01",
+                "elapsed": "\uee04"
+            },
+            "color": {
+                "total": null
+            }
+        },
+        "percent": {
+            "type": [
+                "bar",
+                "bar-monochrome",
+                "num",
+                "num-color"
+            ]
+        }
+    },
+    "modules": [
+        {
+            "type": "title",
+            "format": "{#90}╭{$1}╮\u001b[61D {#92}{user-name}{#39}@{#92}{host-name}   "
+        },
+        {
+            "type": "host",
+            "key": "{$2}{#93}󰌢 Machine  ",
+            "format": "{name}"
+        },
+        {
+            "type": "os",
+            "key": "{$2}{#93}󰀵 OS       ",
+            "format": "{pretty-name} {arch}"
+        },
+        {
+            "type": "kernel",
+            "key": "{$2}{#93} Kernel   ",
+            "format": "{sysname} {release}"
+        },
+        {
+            "type": "uptime",
+            "key": "{$2}{#93}󰔚 Uptime   ",
+            "format": "{days} days, {hours} hours, {minutes} mins"
+        },
+        {
+            "type": "terminal",
+            "key": "{$2}{#95} Terminal ",
+            "format": "{pretty-name} {version}"
+        },
+        {
+            "type": "shell",
+            "key": "{$2}{#95} Shell    ",
+            "format": "{pretty-name} {version}"
+        },
+        {
+            "type": "cpu",
+            "key": "{$2}{#91}󰍛 Cpu      ",
+            "showPeCoreCount": true,
+            "temp": true,
+            "format": "{name} ({core-types}) @ {freq-max}{?temperature} - {temperature}{/temperature}"
+        },
+        {
+            "type": "gpu",
+            "key": "{$2}{#91}󰢮 Gpu      ",
+            "format": "{name} ({core-count}) @ {frequency} [{type}]"
+        },
+        {
+            "type": "custom",
+            "format": "{#90}├{$1}┤"
+        },
+        {
+            "type": "memory",
+            "key": "{$2}{#94} Ram      ",
+            "format": "{percentage-bar} {percentage} - {used} / {total}"
+        },
+        {
+            "type": "swap",
+            "key": "{$2}{#94}󰓡 Swap     ",
+            "format": "{percentage-bar} {percentage} - {used} / {total}"
+        },
+        {
+            "type": "disk",
+            "folders": "/",
+            "key": "{$2}{#94}󰋊 Disk     ",
+            "format": "{size-percentage-bar} {size-percentage} - {size-used} / {size-total}"
+        },
+        {
+            "type": "battery",
+            "key": "{$2}{#94}󰁹 Battery  ",
+            "format": "{capacity-bar} {capacity}{?time-formatted} - {time-hours}.{time-minutes}hrs remaining{/time-formatted}",
+            "percent": {
+                "green": 70,
+                "yellow": 30,
+                "type": [
+                    "bar",
+                    "bar-monochrome",
+                    "num",
+                    "num-color"
+                ]
+            }
+        },
+        {
+            "type": "custom",
+            "format": "{#90}├{$1}┤"
+        },
+        {
+            "type": "colors",
+            "key": "{$2}{#39} Colors   ",
+            "paddingLeft": 1,
+            "symbol": "circle"
+        },
+        {
+            "type": "custom",
+            "format": "{#90}╰{$1}╯"
+        },
+    ]
+}
