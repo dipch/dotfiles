@@ -3,5 +3,10 @@
 # Please adapt and uncomment the following lines:
 name = Dip Chowdhury	
 email = dipchry@gmail.com
+	signingkey = /Users/dipc/.ssh/id_ed25519
 [core]
 	editor = nano
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
