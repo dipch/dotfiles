@@ -131,8 +131,6 @@ export PATH="/Users/dipc/.antigravity/antigravity/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Initialize Starship prompt
-eval "$(starship init zsh)"
 
 # --- ZSH History Configuration ---
 HISTFILE=$HOME/.zsh_history           # Where to save the history file
@@ -225,6 +223,9 @@ nuke() {
     echo "⏱️  Total time: ${duration} seconds"
     echo "------------------------------------------"
 }
+
+# Initialize Starship prompt
+eval "$(starship init zsh)"
 
 # Display Fastfetch
 fastfetch

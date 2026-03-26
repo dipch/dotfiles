@@ -10,3 +10,5 @@ email = dipchry@gmail.com
 	format = ssh
 [commit]
 	gpgsign = true
+[alias]
+	acp = "!f() { git add .; git commit -m \"$1\"; git push; }; f"
