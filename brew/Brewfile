@@ -25,6 +25,8 @@ brew "fd"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Alternative to top/htop
 brew "glances"
 # Tools and libraries to manipulate images in select formats
@@ -87,6 +89,7 @@ cask "bitwarden"
 cask "discord"
 # Per-application volume mixer, equalizer, and audio router
 cask "finetune"
+cask "font-fira-code"
 cask "font-symbols-only-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
