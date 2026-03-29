@@ -43,6 +43,8 @@ brew "lsd"
 brew "mas"
 # Provides a formatted and highlighted view of Markdown files in Terminal
 brew "mdless"
+# Deep clean and optimize your Mac
+brew "mole"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
 # Improved Nano Syntax Highlighting Files
@@ -89,6 +91,7 @@ cask "bitwarden"
 cask "discord"
 # Per-application volume mixer, equalizer, and audio router
 cask "finetune"
+cask "font-atkinson-hyperlegible"
 cask "font-fira-code"
 cask "font-symbols-only-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -101,6 +104,8 @@ cask "localsend"
 cask "maccy"
 # Open-source software for live streaming and screen recording
 cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Team communication and collaboration software
@@ -115,7 +120,4 @@ cask "whatsapp"
 cask "zoom"
 # Collect, organise, cite, and share research sources
 cask "zotero"
-mas "Bitwarden", id: 1352778147
 mas "PDFgear", id: 6469021132
-mas "Slack", id: 803453959
-mas "WhatsApp", id: 310633997
