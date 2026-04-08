@@ -87,6 +87,8 @@ brew "hacker1024/hacker1024/coretemp"
 brew "minorole/tap/gpane"
 # Desktop password and login vault
 cask "bitwarden"
+# Server and cloud storage browser
+cask "cyberduck"
 # Voice and text chat software
 cask "discord"
 # Per-application volume mixer, equalizer, and audio router
