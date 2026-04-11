@@ -27,6 +27,8 @@ brew "ffmpeg"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Alternative to top/htop
 brew "glances"
 # Tools and libraries to manipulate images in select formats
