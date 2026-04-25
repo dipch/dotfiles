@@ -223,6 +223,8 @@ nuke() {
     echo "⏱️  Total time: ${duration} seconds"
     echo "------------------------------------------"
 }
+# Pixi Autocompletion
+eval "$(pixi completion --shell zsh)"
 
 # Initialize Starship prompt
 eval "$(starship init zsh)"

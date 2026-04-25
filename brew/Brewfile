@@ -53,6 +53,8 @@ brew "nano"
 brew "nanorc"
 # Development kit for the Java programming language
 brew "openjdk@21"
+# Package management made easy
+brew "pixi"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # SVG rendering tool and library
