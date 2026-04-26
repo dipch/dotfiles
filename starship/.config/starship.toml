@@ -149,7 +149,7 @@ ignore_base = false
 
 [pixi]
 symbol = "🧚"
-style = "bg:green"
+style = "fg:crust bg:green"
 format = '[[ $symbol( $environment) ](fg:crust bg:green)]($style)'
 
 [time]
