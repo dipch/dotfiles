@@ -21,6 +21,7 @@ $php\
 $java\
 $kotlin\
 $haskell\
+$pixi\
 $python\
 [](fg:green bg:sapphire)\
 $conda\
@@ -133,6 +134,7 @@ format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 symbol = "🐍"
 style = "bg:green"
 format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
+python_binary = ["python", ".pixi/envs/default/bin/python"]
 
 [docker_context]
 symbol = ""
@@ -144,6 +146,11 @@ symbol = " 🐍 "
 style = "fg:crust bg:sapphire"
 format = '[$symbol$environment ]($style)'
 ignore_base = false
+
+[pixi]
+symbol = "🧚"
+style = "bg:green"
+format = '[[ $symbol( $environment) ](fg:crust bg:green)]($style)'
 
 [time]
 disabled = false
